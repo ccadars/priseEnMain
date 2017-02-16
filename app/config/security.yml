@@ -49,7 +49,7 @@ security:
             
             logout:
                 path: /logout
-                target: /
+                target: /blue
             
     access_control:
         # require ROLE_ADMIN for /admin*

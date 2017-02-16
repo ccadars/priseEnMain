@@ -9,26 +9,36 @@
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
-        {% block body %}
+    {% block body %}
         <body>
-{#            On crée un block Nav qui est rappelé dans nos autres pages#}
+            {#            On crée un block Nav qui est rappelé dans nos autres pages#}
             {% block nav %}
                 <nav>
                     <ul>
-{#                        On link grâce au path(name) la route#}
+                        {#                        On link grâce au path(name) la route#}
                         <li><a href="{{path('y')}}">yellow</a></li>
                         <li><a href="{{path('r')}}">red</a></li>
                         <li><a href="{{path('b')}}">blue</a></li>
                         <li><a href="{{path('g')}}">green</a></li>
-                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <li><a href="{{path('logout')}}">{{ app.user.username }}</a></li>
-                    {% endif %}
+
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <li><a href="{{path('logout')}}">{{ app.user.username }}</a></li>
+                            {% else %}
+                            <form method="POST" action="{{path('loginCheck')}}">
+
+                                <input type="text" id="username" name="_username">
+                                <input type="text" id="password" name="_password">
+                                <input type="submit" value="Soumettre à loginCheck">
+
+                            </form>
+                            
+                        {% endif %}
 
                     </ul>
-                
+
                 </nav>
-        {% endblock %}
+            {% endblock %}
         </body>
-        {% endblock %}
-        {% block javascripts %}{% endblock %}
+    {% endblock %}
+{% block javascripts %}{% endblock %}
 </html>

@@ -20,7 +20,12 @@
                         <li><a href="{{path('r')}}">red</a></li>
                         <li><a href="{{path('b')}}">blue</a></li>
                         <li><a href="{{path('g')}}">green</a></li>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li><a href="{{path('logout')}}">{{ app.user.username }}</a></li>
+                    {% endif %}
+
                     </ul>
+                
                 </nav>
         {% endblock %}
         </body>

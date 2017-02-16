@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %}
+ {% block stylesheets %}
+     {{parent()}}
+        {% endblock %}
 {% block body %}
     <body class="blue">
-        {% block nav %}
+       {% block nav %}
             {{parent()}}
         {% endblock %}
     </body>

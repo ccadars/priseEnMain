@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+    <form method="POST" action="{{path('loginCheck')}}">
+        
+        <input type="text" id="username" name="_username">
+        <input type="text" id="password" name="_password">
+        <input type="submit" value="Soumettre à loginCheck">
+    
+    </form>
+    
+
+{% endblock %}
